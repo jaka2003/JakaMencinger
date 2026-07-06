@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* prostor za fiksno navigacijo pri skoku na sekcije */
+}
+
+body {
+  @apply bg-ink text-slate-200 antialiased;
+}
+
+/* Lep, subtilen gradientni tekst za poudarke */
+.text-gradient {
+  @apply bg-gradient-to-r from-accent-soft via-accent to-cyan bg-clip-text text-transparent;
+}
+
+/* Spoštuj nastavitev uporabnika za zmanjšano gibanje */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
