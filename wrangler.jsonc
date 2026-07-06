@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers – static assets deploy (brez OpenNext / Workers runtime).
+  // Objavi vsebino mape "out/" (statični Next export) kot navadno statično stran.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jakamencinger",
+  "compatibility_date": "2026-07-06",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
