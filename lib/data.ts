@@ -90,6 +90,24 @@ export const projects: Project[] = [
     liveUrl: "https://www.cistilniservis-vg.si",
     githubUrl: "", // TODO: GitHub link (če je repo javen)
   },
+  {
+    id: "potepuh",
+    title: "Potepuh",
+    tag: "Spletna trgovina",
+    description:
+      "Spletna trgovina z ženskimi oblačili, postavljena na platformi Shopify – od kataloga izdelkov in kolekcij do nakupnega procesa.",
+    features: [
+      "Katalog izdelkov",
+      "Kolekcije in kategorije",
+      "Košarica in nakupni proces",
+      "Urejanje vsebine",
+      "Mobilna optimizacija",
+    ],
+    tech: ["Shopify", "E-commerce"],
+    image: "/projects/potepuh.png",
+    liveUrl: "https://www.potepuh-trgovine.si",
+    githubUrl: "",
+  },
 ];
 
 export const skills: string[] = [
@@ -102,6 +120,7 @@ export const skills: string[] = [
   "Python",
   "PostgreSQL",
   "Payload CMS",
+  "Shopify",
   "Git / GitHub",
   "SaaS aplikacije",
   "CRM sistemi",
