@@ -1,6 +1,6 @@
 import Section from "./Section";
 import Reveal from "./Reveal";
-import { personal } from "@/lib/data";
+import { content, shared, type Locale } from "@/lib/data";
 
 const EmailIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth={1.7}>
@@ -20,29 +20,29 @@ const PinIcon = () => (
   </svg>
 );
 
-export default function Contact() {
-  const socials = [{ label: "GitHub", href: personal.github }];
+export default function Contact({ locale }: { locale: Locale }) {
+  const c = content[locale];
+  const s = c.sections.contact;
+  const socials = [{ label: "GitHub", href: shared.github }];
 
   return (
-    <Section id="kontakt" eyebrow="Kontakt" title="Stopiva v stik">
+    <Section id={s.id} eyebrow={s.eyebrow} title={s.title}>
       <div className="grid gap-8 lg:grid-cols-2">
         <Reveal>
           <p className="max-w-md text-base leading-relaxed text-slate-300">
-            Iščeš razvijalca za zaposlitev? Z veseljem se
-            pogovorim o priložnostih, projektih ali sodelovanju. Najhitreje me
-            dobiš po e-pošti.
+            {c.contact.text}
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={`mailto:${personal.email}`}
+              href={`mailto:${shared.email}`}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-white shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent-soft"
             >
-              <EmailIcon /> Pošlji e-pošto
+              <EmailIcon /> {c.contact.sendEmail}
             </a>
 
             <a
-              href={personal.cvUrl}
+              href={c.personal.cvUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 font-medium text-white transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white/5"
@@ -51,28 +51,28 @@ export default function Contact() {
                 <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
                 <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
               </svg>
-              Prenesi CV
+              {c.contact.downloadCv}
             </a>
 
-            {socials.map((s) =>
-              s.href ? (
+            {socials.map((so) =>
+              so.href ? (
                 <a
-                  key={s.label}
-                  href={s.href}
+                  key={so.label}
+                  href={so.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white/5"
                 >
-                  {s.label}
+                  {so.label}
                 </a>
               ) : (
                 <span
-                  key={s.label}
+                  key={so.label}
                   aria-disabled="true"
-                  title="Povezava bo dodana kmalu"
+                  title={c.contact.linkSoon}
                   className="inline-flex cursor-not-allowed items-center justify-center rounded-full border border-white/10 px-6 py-3 font-medium text-slate-500"
                 >
-                  {s.label}
+                  {so.label}
                 </span>
               )
             )}
@@ -83,29 +83,29 @@ export default function Contact() {
           <ul className="space-y-3">
             <li>
               <a
-                href={`mailto:${personal.email}`}
+                href={`mailto:${shared.email}`}
                 className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface/60 p-5 transition-colors hover:border-accent/40"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent-soft">
                   <EmailIcon />
                 </span>
                 <span>
-                  <span className="block text-xs uppercase tracking-wide text-slate-500">E-pošta</span>
-                  <span className="font-medium text-white">{personal.email}</span>
+                  <span className="block text-xs uppercase tracking-wide text-slate-500">{c.contact.emailLabel}</span>
+                  <span className="font-medium text-white">{shared.email}</span>
                 </span>
               </a>
             </li>
             <li>
               <a
-                href={`tel:${personal.phone.replace(/\s/g, "")}`}
+                href={`tel:${c.personal.phone.replace(/\s/g, "")}`}
                 className="flex items-center gap-4 rounded-2xl border border-white/10 bg-surface/60 p-5 transition-colors hover:border-accent/40"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent-soft">
                   <PhoneIcon />
                 </span>
                 <span>
-                  <span className="block text-xs uppercase tracking-wide text-slate-500">Telefon</span>
-                  <span className="font-medium text-white">{personal.phone}</span>
+                  <span className="block text-xs uppercase tracking-wide text-slate-500">{c.contact.phoneLabel}</span>
+                  <span className="font-medium text-white">{c.personal.phone}</span>
                 </span>
               </a>
             </li>
@@ -114,8 +114,8 @@ export default function Contact() {
                 <PinIcon />
               </span>
               <span>
-                <span className="block text-xs uppercase tracking-wide text-slate-500">Lokacija</span>
-                <span className="font-medium text-white">{personal.location}</span>
+                <span className="block text-xs uppercase tracking-wide text-slate-500">{c.contact.locationLabel}</span>
+                <span className="font-medium text-white">{c.personal.location}</span>
               </span>
             </li>
           </ul>

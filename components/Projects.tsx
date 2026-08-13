@@ -1,20 +1,18 @@
 import Section from "./Section";
 import Reveal from "./Reveal";
 import ProjectCard from "./ProjectCard";
-import { projects } from "@/lib/data";
+import { content, type Locale } from "@/lib/data";
 
-export default function Projects() {
+export default function Projects({ locale }: { locale: Locale }) {
+  const c = content[locale];
+  const s = c.sections.projects;
+
   return (
-    <Section
-      id="projekti"
-      eyebrow="Projekti"
-      title="Izbrani projekti"
-      className="bg-surface/30"
-    >
+    <Section id={s.id} eyebrow={s.eyebrow} title={s.title} className="bg-surface/30">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, i) => (
+        {c.projects.map((project, i) => (
           <Reveal key={project.id} delay={i * 80}>
-            <ProjectCard project={project} />
+            <ProjectCard project={project} locale={locale} />
           </Reveal>
         ))}
       </div>

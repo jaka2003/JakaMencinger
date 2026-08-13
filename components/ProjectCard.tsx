@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import type { Project } from "@/lib/data";
+import { content, type Locale, type Project } from "@/lib/data";
 
 /** Gumb za povezavo – če povezave (še) ni, je prikazan kot neaktiven. */
 function LinkButton({
   href,
   children,
+  linkSoon,
   primary = false,
 }: {
   href: string;
   children: React.ReactNode;
+  linkSoon: string;
   primary?: boolean;
 }) {
   const base =
@@ -20,7 +22,7 @@ function LinkButton({
     return (
       <span
         aria-disabled="true"
-        title="Povezava bo dodana kmalu"
+        title={linkSoon}
         className={`${base} cursor-not-allowed border border-white/10 text-slate-500`}
       >
         {children}
@@ -44,7 +46,14 @@ function LinkButton({
   );
 }
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  locale,
+}: {
+  project: Project;
+  locale: Locale;
+}) {
+  const t = content[locale].projectCard;
   const [imgOk, setImgOk] = useState(true);
 
   return (
@@ -55,7 +64,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={project.image}
-            alt={`Predogled projekta ${project.title}`}
+            alt={t.previewAlt(project.title)}
             onError={() => setImgOk(false)}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
@@ -93,24 +102,26 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.tech.length > 0 && (
           <div className="mt-4 flex flex-wrap items-center gap-2">
             <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
-              Tehnologije
+              {t.technologies}
             </span>
-            {project.tech.map((t) => (
+            {project.tech.map((tech) => (
               <span
-                key={t}
+                key={tech}
                 className="rounded-md border border-accent/25 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent-soft"
               >
-                {t}
+                {tech}
               </span>
             ))}
           </div>
         )}
 
         <div className="mt-auto flex gap-3 pt-6">
-          <LinkButton href={project.liveUrl} primary>
+          <LinkButton href={project.liveUrl} linkSoon={t.linkSoon} primary>
             Live demo
           </LinkButton>
-          <LinkButton href={project.githubUrl}>GitHub</LinkButton>
+          <LinkButton href={project.githubUrl} linkSoon={t.linkSoon}>
+            GitHub
+          </LinkButton>
         </div>
       </div>
     </article>

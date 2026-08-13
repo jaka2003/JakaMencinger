@@ -1,6 +1,8 @@
-import { personal } from "@/lib/data";
+import { content, shared, type Locale } from "@/lib/data";
 
-export default function Hero() {
+export default function Hero({ locale }: { locale: Locale }) {
+  const c = content[locale];
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
       {/* Gradientno ozadje + mehki "blobi" */}
@@ -25,37 +27,37 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan" />
             </span>
-            Na voljo za zaposlitev
+            {c.hero.available}
           </p>
 
           <h1 className="animate-fade-up text-4xl font-bold leading-tight tracking-tight text-white [animation-delay:80ms] sm:text-6xl">
-            {personal.name}
+            {shared.name}
           </h1>
 
           <p className="mt-4 animate-fade-up text-xl font-medium text-gradient [animation-delay:160ms] sm:text-2xl">
-            {personal.title}
+            {c.personal.title}
           </p>
 
           <p className="mt-6 max-w-2xl animate-fade-up text-base leading-relaxed text-slate-300 [animation-delay:240ms] sm:text-lg">
-            {personal.heroText}
+            {c.personal.heroText}
           </p>
 
           <div className="mt-9 flex animate-fade-up flex-col gap-3 [animation-delay:320ms] sm:flex-row">
             <a
-              href="#projekti"
+              href={`#${c.sections.projects.id}`}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-white shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent-soft hover:shadow-accent/40"
             >
-              Poglej projekte
+              {c.hero.viewProjects}
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a
-              href="#kontakt"
+              href={`#${c.sections.contact.id}`}
               className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 font-medium text-white transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white/5"
             >
-              Kontaktiraj me
+              {c.hero.contactMe}
             </a>
             <a
-              href={personal.cvUrl}
+              href={c.personal.cvUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 font-medium text-white transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white/5"
@@ -64,7 +66,7 @@ export default function Hero() {
                 <path d="M12 3v12m0 0 4-4m-4 4-4-4" />
                 <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
               </svg>
-              Prenesi CV
+              {c.hero.downloadCv}
             </a>
           </div>
         </div>

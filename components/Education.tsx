@@ -1,6 +1,6 @@
 import Section from "./Section";
 import Reveal from "./Reveal";
-import { education, languages } from "@/lib/data";
+import { content, type Locale } from "@/lib/data";
 
 const CapIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth={1.7}>
@@ -15,9 +15,12 @@ const GlobeIcon = () => (
   </svg>
 );
 
-export default function Education() {
+export default function Education({ locale }: { locale: Locale }) {
+  const c = content[locale];
+  const s = c.sections.education;
+
   return (
-    <Section id="izobrazba" eyebrow="Izobrazba & jeziki" title="Ozadje">
+    <Section id={s.id} eyebrow={s.eyebrow} title={s.title}>
       <div className="grid gap-6 md:grid-cols-2">
         <Reveal>
           <div className="h-full rounded-2xl border border-white/10 bg-surface/60 p-6">
@@ -25,10 +28,10 @@ export default function Education() {
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15">
                 <CapIcon />
               </span>
-              <h3 className="text-lg font-semibold text-white">Izobrazba</h3>
+              <h3 className="text-lg font-semibold text-white">{c.education.title}</h3>
             </div>
             <ul className="space-y-4">
-              {education.map((e) => (
+              {c.education.items.map((e) => (
                 <li key={e.school}>
                   <p className="font-medium text-white">{e.school}</p>
                   <p className="text-sm text-slate-400">
@@ -46,10 +49,10 @@ export default function Education() {
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15">
                 <GlobeIcon />
               </span>
-              <h3 className="text-lg font-semibold text-white">Jeziki</h3>
+              <h3 className="text-lg font-semibold text-white">{c.languages.title}</h3>
             </div>
             <ul className="space-y-3">
-              {languages.map((l) => (
+              {c.languages.items.map((l) => (
                 <li
                   key={l.name}
                   className="flex items-center justify-between border-b border-white/5 pb-3 last:border-0 last:pb-0"

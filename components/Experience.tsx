@@ -1,21 +1,19 @@
 import Section from "./Section";
 import Reveal from "./Reveal";
-import { experiences } from "@/lib/data";
+import { content, type Locale } from "@/lib/data";
 
-export default function Experience() {
+export default function Experience({ locale }: { locale: Locale }) {
+  const c = content[locale];
+  const s = c.sections.experience;
+
   return (
-    <Section
-      id="izkusnje"
-      eyebrow="Izkušnje"
-      title="Moja pot"
-      className="bg-surface/30"
-    >
+    <Section id={s.id} eyebrow={s.eyebrow} title={s.title} className="bg-surface/30">
       <div className="relative">
         {/* Navpična črta časovnice */}
         <div className="absolute left-[7px] top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-accent/60 via-white/15 to-transparent sm:left-[9px]" />
 
         <ul className="space-y-8">
-          {experiences.map((exp, i) => (
+          {c.experience.map((exp, i) => (
             <Reveal key={exp.role} delay={i * 100}>
               <li className="relative pl-8 sm:pl-10">
                 <span className="absolute left-0 top-1.5 h-3.5 w-3.5 rounded-full border-2 border-accent bg-ink sm:h-[18px] sm:w-[18px]" />

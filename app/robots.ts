@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { personal } from "@/lib/data";
+import { shared } from "@/lib/data";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${personal.siteUrl}/sitemap.xml`,
+    sitemap: `${shared.siteUrl}/sitemap.xml`,
   };
 }
