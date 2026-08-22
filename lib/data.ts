@@ -24,7 +24,6 @@ export type Project = {
   tech: string[]; // uporabljene tehnologije (prikazane ločeno pod funkcijami)
   image: string; // pot do slike v /public
   liveUrl: string; // "" => gumb je neaktiven (placeholder)
-  githubUrl: string; // "" => gumb je neaktiven (placeholder)
 };
 
 export type ExperienceItem = {
@@ -118,7 +117,7 @@ const sl: SiteContent = {
     location: "Lesce, Slovenija",
     phone: "051 328 817",
     heroText:
-      "Diplomiran informatik z izkušnjami pri razvoju spletnih aplikacij, SaaS rešitev in CMS sistemov. Razvijam praktične rešitve s poudarkom na čisti uporabniški izkušnji – od zasnove do delujočega produkta.",
+      "Inženir informatike iz Lesc. V zadnjih dveh letih sem sam zgradil in v produkcijo pripeljal dva SaaS produkta, od podatkovnega modela do plačil in vzdrževanja. Delam v TypeScriptu (Next.js, React) in Pythonu (FastAPI) nad PostgreSQL. AI imam v živi uporabi, ne v demu: branje dokumentov, generiranje opisov, cenitve.",
     cvUrl: "/cv-jaka-mencinger.pdf",
   },
 
@@ -154,12 +153,12 @@ const sl: SiteContent = {
 
   about: {
     paragraphs: [
-      "Diplomiran informatik iz Lesc, z izkušnjami pri razvoju spletnih aplikacij, SaaS rešitev in CMS sistemov.",
-      "Razvil sem CRM za nepremičninske agente in več spletnih strani za naročnike – od zasnove in oblikovanja do končne izvedbe ter komunikacije s strankami.",
+      "Inženir informatike iz Lesc. V zadnjih dveh letih sem sam zgradil in v produkcijo pripeljal dva SaaS produkta, od podatkovnega modela do plačil in vzdrževanja.",
+      "Delam v TypeScriptu (Next.js, React) in Pythonu (FastAPI) nad PostgreSQL.",
     ],
     interest: {
-      before: "Zanima me razvoj sodobnih spletnih aplikacij, kjer lahko nadgrajujem znanje ",
-      strong: "Reacta, TypeScripta in backend tehnologij",
+      before: "AI imam v živi uporabi, ne v demu: ",
+      strong: "branje dokumentov, generiranje opisov, cenitve",
       after: ".",
     },
     highlights: [
@@ -190,6 +189,23 @@ const sl: SiteContent = {
 
   projects: [
     {
+      id: "kontrolnik",
+      title: "Kontrolnik",
+      tag: "HACCP SaaS v produkciji",
+      description:
+        "SaaS za brezpapirno vodenje HACCP evidenc v gostinstvu. Od prvega commita do plačljive produkcije v 34 dneh, ena restavracija ga uporablja vsak dan.",
+      features: [
+        "QR vnos temperatur in čiščenja",
+        "Deluje brez interneta, sinhronizacija brez podvajanja",
+        "AI branje dobavnic (Claude, shemska validacija)",
+        "Stripe naročnine",
+        "635 avtomatiziranih testov",
+      ],
+      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
+      image: "/projects/kontrolnik.png",
+      liveUrl: "https://kontrolnik.com",
+    },
+    {
       id: "tvojagent",
       title: "TvojAgent CRM",
       tag: "Nepremičninski CRM SaaS",
@@ -205,7 +221,6 @@ const sl: SiteContent = {
       tech: ["React", "Next.js", "Python", "PostgreSQL"],
       image: "/projects/tvojagent.png",
       liveUrl: "https://tvojagent.com",
-      githubUrl: "", // TODO: GitHub link (če je repo javen)
     },
     {
       id: "demokrati",
@@ -223,7 +238,6 @@ const sl: SiteContent = {
       tech: ["Next.js", "Payload CMS"],
       image: "/projects/demokrati.png",
       liveUrl: "https://demokratiradovljica.com",
-      githubUrl: "", // TODO: GitHub link (če je repo javen)
     },
     {
       id: "ciscenje",
@@ -241,7 +255,6 @@ const sl: SiteContent = {
       tech: ["Next.js", "Tailwind CSS", "SEO"],
       image: "/projects/cistilniservis.png",
       liveUrl: "https://www.cistilniservis-vg.si",
-      githubUrl: "", // TODO: GitHub link (če je repo javen)
     },
     {
       id: "potepuh",
@@ -259,7 +272,6 @@ const sl: SiteContent = {
       tech: ["Shopify", "E-commerce"],
       image: "/projects/potepuh.png",
       liveUrl: "https://www.potepuh-trgovine.si",
-      githubUrl: "",
     },
   ],
 
@@ -267,33 +279,37 @@ const sl: SiteContent = {
     "HTML5",
     "CSS3",
     "JavaScript",
+    "TypeScript",
     "React",
     "Next.js",
     "Tailwind CSS",
     "Python",
+    "FastAPI",
     "PostgreSQL",
+    "Prisma",
     "Payload CMS",
     "Shopify",
+    "Docker",
+    "Stripe",
     "Git / GitHub",
+    "Vitest",
+    "Playwright",
     "SaaS aplikacije",
     "CRM sistemi",
-    "SEO osnove",
     "Relacijske baze podatkov",
-    "Responsive design",
+    "AI integracije (Anthropic API, OCR, structured outputs)",
   ],
 
   experience: [
     {
-      role: "Oblikovalec in razvijalec (SaaS in spletne strani)",
-      org: "Samostojno delo / projekti za naročnike",
-      period: "1 leto",
+      role: "Junior Software Engineer",
+      org: "Uroš Mencinger s.p.",
+      period: "okt. 2024 do danes",
       bullets: [
-        "Oblikoval in razvil SaaS rešitev – CRM sistem za nepremičninske agente.",
-        "Sodeloval s strankami od zasnove do končne izvedbe.",
-        "Razvoj odzivnih (responsive) spletnih strani.",
-        "Integracija CMS sistemov.",
-        "Optimizacija hitrosti in SEO.",
-        "Načrtovanje podatkovnih modelov.",
+        "Zgradil in vzdržujem dva SaaS produkta v produkciji (~110.000 vrstic, 667 commitov)",
+        "Produkcijo vodim sam: deployi, migracije baze, backupi, alerti",
+        "AI funkcije v produkciji prek Anthropic API",
+        "Delo z naročniki od zahtev do predaje",
       ],
     },
     {
@@ -303,14 +319,6 @@ const sl: SiteContent = {
       bullets: [
         "Praktično usposabljanje na področju razvoja programske opreme.",
         "Spoznal delo v razvojni ekipi in delovne procese podjetja.",
-      ],
-    },
-    {
-      role: "Natakar – študentsko delo",
-      org: "Gostinstvo",
-      period: "3 leta",
-      bullets: [
-        "Razvil odlične komunikacijske sposobnosti, delo pod pritiskom in timsko sodelovanje.",
       ],
     },
   ],
@@ -353,7 +361,7 @@ const sl: SiteContent = {
   meta: {
     title: "Jaka Mencinger – Razvijalec programske opreme",
     description:
-      "Diplomiran informatik z izkušnjami pri razvoju spletnih aplikacij, SaaS rešitev in CMS sistemov. Razvijam praktične rešitve s poudarkom na čisti uporabniški izkušnji – od zasnove do delujočega produkta.",
+      "Inženir informatike iz Lesc. Sam sem zgradil in v produkcijo pripeljal dva SaaS produkta. TypeScript, Python, PostgreSQL, AI v živi uporabi.",
     keywords: [
       "Jaka Mencinger",
       "Junior Developer",
@@ -373,7 +381,7 @@ const en: SiteContent = {
     location: "Lesce, Slovenia",
     phone: "+386 51 328 817",
     heroText:
-      "Informatics graduate with experience building web applications, SaaS products and CMS systems. I build practical solutions with a focus on clean user experience — from concept to working product.",
+      "Engineer of Informatics from Lesce, Slovenia. Over the past two years I have built and shipped two SaaS products to production on my own, from data model to payments and maintenance. I work in TypeScript (Next.js, React) and Python (FastAPI) on PostgreSQL. My AI features run in production, not in demos: document reading, generated descriptions, valuations.",
     cvUrl: "/cv-jaka-mencinger-en.pdf",
   },
 
@@ -409,12 +417,12 @@ const en: SiteContent = {
 
   about: {
     paragraphs: [
-      "Informatics graduate from Lesce, Slovenia, with experience building web applications, SaaS products and CMS systems.",
-      "I built a CRM for real-estate agents and several client websites — from concept and design to final delivery and client communication.",
+      "Engineer of Informatics from Lesce, Slovenia. Over the past two years I have built and shipped two SaaS products to production on my own, from data model to payments and maintenance.",
+      "I work in TypeScript (Next.js, React) and Python (FastAPI) on PostgreSQL.",
     ],
     interest: {
-      before: "I'm drawn to modern web application development, where I can keep deepening my knowledge of ",
-      strong: "React, TypeScript and backend technologies",
+      before: "My AI features run in production, not in demos: ",
+      strong: "document reading, generated descriptions, valuations",
       after: ".",
     },
     highlights: [
@@ -424,7 +432,7 @@ const en: SiteContent = {
       },
       {
         title: "SaaS development",
-        text: "Built a SaaS CRM for real-estate agents — from idea to working product.",
+        text: "Built a SaaS CRM for real-estate agents, from idea to working product.",
       },
       {
         title: "Industry internship",
@@ -445,6 +453,23 @@ const en: SiteContent = {
 
   projects: [
     {
+      id: "kontrolnik",
+      title: "Kontrolnik",
+      tag: "HACCP SaaS in production",
+      description:
+        "SaaS for paperless HACCP compliance records in food service. From first commit to paying production in 34 days, one restaurant uses it every day.",
+      features: [
+        "QR entry of temperatures and cleaning",
+        "Works offline, sync without duplicates",
+        "AI reading of delivery notes (Claude, schema validation)",
+        "Stripe subscriptions",
+        "635 automated tests",
+      ],
+      tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
+      image: "/projects/kontrolnik.png",
+      liveUrl: "https://kontrolnik.com",
+    },
+    {
       id: "tvojagent",
       title: "TvojAgent CRM",
       tag: "Real-estate CRM SaaS",
@@ -460,14 +485,13 @@ const en: SiteContent = {
       tech: ["React", "Next.js", "Python", "PostgreSQL"],
       image: "/projects/tvojagent.png",
       liveUrl: "https://tvojagent.com",
-      githubUrl: "",
     },
     {
       id: "demokrati",
       title: "Demokrati Radovljica",
       tag: "Website + CMS",
       description:
-        "Website and CMS for a local political organization — news, events, membership and materials, easy to manage for non-technical users.",
+        "Website and CMS for a local political organization: news, events, membership and materials, easy to manage for non-technical users.",
       features: [
         "Public website",
         "Internal CMS",
@@ -478,7 +502,6 @@ const en: SiteContent = {
       tech: ["Next.js", "Payload CMS"],
       image: "/projects/demokrati.png",
       liveUrl: "https://demokratiradovljica.com",
-      githubUrl: "",
     },
     {
       id: "ciscenje",
@@ -496,14 +519,13 @@ const en: SiteContent = {
       tech: ["Next.js", "Tailwind CSS", "SEO"],
       image: "/projects/cistilniservis.png",
       liveUrl: "https://www.cistilniservis-vg.si",
-      githubUrl: "",
     },
     {
       id: "potepuh",
       title: "Potepuh",
       tag: "Online store",
       description:
-        "Women's clothing online store built on Shopify — from product catalog and collections to the full checkout flow.",
+        "Women's clothing online store built on Shopify, from product catalog and collections to the full checkout flow.",
       features: [
         "Product catalog",
         "Collections & categories",
@@ -514,7 +536,6 @@ const en: SiteContent = {
       tech: ["Shopify", "E-commerce"],
       image: "/projects/potepuh.png",
       liveUrl: "https://www.potepuh-trgovine.si",
-      githubUrl: "",
     },
   ],
 
@@ -522,33 +543,37 @@ const en: SiteContent = {
     "HTML5",
     "CSS3",
     "JavaScript",
+    "TypeScript",
     "React",
     "Next.js",
     "Tailwind CSS",
     "Python",
+    "FastAPI",
     "PostgreSQL",
+    "Prisma",
     "Payload CMS",
     "Shopify",
+    "Docker",
+    "Stripe",
     "Git / GitHub",
+    "Vitest",
+    "Playwright",
     "SaaS applications",
     "CRM systems",
-    "SEO fundamentals",
     "Relational databases",
-    "Responsive design",
+    "AI integrations (Anthropic API, OCR, structured outputs)",
   ],
 
   experience: [
     {
-      role: "Designer & developer (SaaS and websites)",
-      org: "Independent work / client projects",
-      period: "1 year",
+      role: "Junior Software Engineer",
+      org: "Uroš Mencinger s.p.",
+      period: "Oct 2024 to present",
       bullets: [
-        "Designed and built a SaaS product — a CRM system for real-estate agents.",
-        "Worked with clients from concept to final delivery.",
-        "Built responsive websites.",
-        "Integrated CMS systems.",
-        "Performance and SEO optimization.",
-        "Data model design.",
+        "Built and maintain two SaaS products in production (~110,000 lines, 667 commits)",
+        "I run production myself: deploys, database migrations, backups, alerting",
+        "AI features in production via the Anthropic API",
+        "Client work from requirements to delivery",
       ],
     },
     {
@@ -558,14 +583,6 @@ const en: SiteContent = {
       bullets: [
         "Hands-on training in software development.",
         "Learned how a development team and company processes work.",
-      ],
-    },
-    {
-      role: "Waiter — student job",
-      org: "Hospitality",
-      period: "3 years",
-      bullets: [
-        "Developed strong communication skills, working under pressure and teamwork.",
       ],
     },
   ],
@@ -608,7 +625,7 @@ const en: SiteContent = {
   meta: {
     title: "Jaka Mencinger – Software Developer",
     description:
-      "Informatics graduate with experience building web applications, SaaS products and CMS systems. I build practical solutions with a focus on clean user experience — from concept to working product.",
+      "Engineer of Informatics from Lesce, Slovenia. I built and shipped two SaaS products to production on my own. TypeScript, Python, PostgreSQL, AI in production.",
     keywords: [
       "Jaka Mencinger",
       "Junior Developer",

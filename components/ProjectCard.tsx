@@ -119,9 +119,6 @@ export default function ProjectCard({
           <LinkButton href={project.liveUrl} linkSoon={t.linkSoon} primary>
             Live demo
           </LinkButton>
-          <LinkButton href={project.githubUrl} linkSoon={t.linkSoon}>
-            GitHub
-          </LinkButton>
         </div>
       </div>
     </article>
