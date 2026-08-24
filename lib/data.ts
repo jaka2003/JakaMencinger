@@ -304,7 +304,7 @@ const sl: SiteContent = {
     {
       role: "Junior Software Engineer",
       org: "Uroš Mencinger s.p.",
-      period: "okt. 2024 do danes",
+      period: "okt. 2025 do danes",
       bullets: [
         "Zgradil in vzdržujem dva SaaS produkta v produkciji (~110.000 vrstic, 667 commitov)",
         "Produkcijo vodim sam: deployi, migracije baze, backupi, alerti",
@@ -568,7 +568,7 @@ const en: SiteContent = {
     {
       role: "Junior Software Engineer",
       org: "Uroš Mencinger s.p.",
-      period: "Oct 2024 to present",
+      period: "Oct 2025 to present",
       bullets: [
         "Built and maintain two SaaS products in production (~110,000 lines, 667 commits)",
         "I run production myself: deploys, database migrations, backups, alerting",
