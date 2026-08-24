@@ -117,7 +117,7 @@ const sl: SiteContent = {
     location: "Lesce, Slovenija",
     phone: "051 328 817",
     heroText:
-      "Inženir informatike iz Lesc. V zadnjih dveh letih sem sam zgradil in v produkcijo pripeljal dva SaaS produkta, od podatkovnega modela do plačil in vzdrževanja. Delam v TypeScriptu (Next.js, React) in Pythonu (FastAPI) nad PostgreSQL. AI imam v živi uporabi, ne v demu: branje dokumentov, generiranje opisov, cenitve.",
+      "Inženir informatike iz Lesc. Sam sem zgradil in v produkcijo pripeljal dva SaaS produkta, od podatkovnega modela do plačil in vzdrževanja. Delam v TypeScriptu (Next.js, React) in Pythonu (FastAPI) nad PostgreSQL. AI imam v živi uporabi, ne v demu: branje dokumentov, generiranje opisov, cenitve.",
     cvUrl: "/cv-jaka-mencinger.pdf",
   },
 
@@ -153,7 +153,7 @@ const sl: SiteContent = {
 
   about: {
     paragraphs: [
-      "Inženir informatike iz Lesc. V zadnjih dveh letih sem sam zgradil in v produkcijo pripeljal dva SaaS produkta, od podatkovnega modela do plačil in vzdrževanja.",
+      "Inženir informatike iz Lesc. Sam sem zgradil in v produkcijo pripeljal dva SaaS produkta, od podatkovnega modela do plačil in vzdrževanja.",
       "Delam v TypeScriptu (Next.js, React) in Pythonu (FastAPI) nad PostgreSQL.",
     ],
     interest: {
@@ -304,12 +304,21 @@ const sl: SiteContent = {
     {
       role: "Junior Software Engineer",
       org: "Uroš Mencinger s.p.",
-      period: "okt. 2025 do danes",
+      period: "okt. 2025 – danes",
       bullets: [
         "Zgradil in vzdržujem dva SaaS produkta v produkciji (~110.000 vrstic, 667 commitov)",
         "Produkcijo vodim sam: deployi, migracije baze, backupi, alerti",
         "AI funkcije v produkciji prek Anthropic API",
         "Delo z naročniki od zahtev do predaje",
+      ],
+    },
+    {
+      role: "Razvoj spletnih rešitev, samostojno",
+      org: "Shopify trgovine in spletne strani za naročnike.",
+      period: "okt. 2024 – okt. 2025",
+      bullets: [
+        "Postavil in objavil Shopify trgovino Potepuh: katalog, kolekcije, nakupni proces, plačila",
+        "Spletne strani za naročnike z Next.js in CMS, ki ga stranka ureja sama",
       ],
     },
     {
@@ -381,7 +390,7 @@ const en: SiteContent = {
     location: "Lesce, Slovenia",
     phone: "+386 51 328 817",
     heroText:
-      "Engineer of Informatics from Lesce, Slovenia. Over the past two years I have built and shipped two SaaS products to production on my own, from data model to payments and maintenance. I work in TypeScript (Next.js, React) and Python (FastAPI) on PostgreSQL. My AI features run in production, not in demos: document reading, generated descriptions, valuations.",
+      "Engineer of Informatics from Lesce, Slovenia. I have built and shipped two SaaS products to production on my own, from data model to payments and maintenance. I work in TypeScript (Next.js, React) and Python (FastAPI) on PostgreSQL. My AI features run in production, not in demos: document reading, generated descriptions, valuations.",
     cvUrl: "/cv-jaka-mencinger-en.pdf",
   },
 
@@ -417,7 +426,7 @@ const en: SiteContent = {
 
   about: {
     paragraphs: [
-      "Engineer of Informatics from Lesce, Slovenia. Over the past two years I have built and shipped two SaaS products to production on my own, from data model to payments and maintenance.",
+      "Engineer of Informatics from Lesce, Slovenia. I have built and shipped two SaaS products to production on my own, from data model to payments and maintenance.",
       "I work in TypeScript (Next.js, React) and Python (FastAPI) on PostgreSQL.",
     ],
     interest: {
@@ -568,12 +577,21 @@ const en: SiteContent = {
     {
       role: "Junior Software Engineer",
       org: "Uroš Mencinger s.p.",
-      period: "Oct 2025 to present",
+      period: "Oct 2025 – present",
       bullets: [
         "Built and maintain two SaaS products in production (~110,000 lines, 667 commits)",
         "I run production myself: deploys, database migrations, backups, alerting",
         "AI features in production via the Anthropic API",
         "Client work from requirements to delivery",
+      ],
+    },
+    {
+      role: "Freelance web development",
+      org: "Shopify stores and websites for clients.",
+      period: "Oct 2024 – Oct 2025",
+      bullets: [
+        "Built and launched the Potepuh Shopify store: catalogue, collections, checkout, payments",
+        "Client websites in Next.js with a CMS the client manages independently",
       ],
     },
     {
