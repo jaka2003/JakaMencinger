@@ -20,6 +20,56 @@ body {
   @apply bg-gradient-to-r from-accent-soft via-accent to-cyan bg-clip-text text-transparent;
 }
 
+/* Tisk CV strani (/cv): črno besedilo na belem, brez interaktivnih elementov.
+   Elementi z razredom print:hidden so skriti prek Tailwinda. */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+    scroll-padding-top: 0;
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  /* Manjša osnovna velikost pisave samo na straneh s CV vsebino,
+     da se CV natisne na dve A4 strani. */
+  html:has(.cv-root) {
+    font-size: 12px;
+  }
+
+  .cv-root {
+    background: #fff !important;
+    min-height: auto !important;
+  }
+
+  .cv-root * {
+    color: #000 !important;
+    background: transparent !important;
+    border-color: #d1d5db !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  .cv-root a {
+    text-decoration: none !important;
+  }
+
+  .cv-root article,
+  .cv-root li {
+    break-inside: avoid;
+  }
+
+  .cv-root h2 {
+    break-after: avoid;
+  }
+}
+
 /* Spoštuj nastavitev uporabnika za zmanjšano gibanje */
 @media (prefers-reduced-motion: reduce) {
   *,

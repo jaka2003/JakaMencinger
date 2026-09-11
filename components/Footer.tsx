@@ -9,7 +9,16 @@ export default function Footer({ locale }: { locale: Locale }) {
         <p className="text-sm text-slate-400">
           © {2026} {shared.name}. {c.footer.rights}
         </p>
-        <p className="text-sm text-slate-500">{c.footer.madeWith}</p>
+        <p className="text-sm text-slate-500">
+          <a
+            href={locale === "sl" ? "/cv" : "/en/cv"}
+            className="text-slate-400 transition-colors hover:text-white"
+          >
+            CV
+          </a>
+          <span aria-hidden="true"> · </span>
+          {c.footer.madeWith}
+        </p>
       </div>
     </footer>
   );
